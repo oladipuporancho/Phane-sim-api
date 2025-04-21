@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,  // Generates .d.ts files for types
+    "removeComments": true,
+    "emitDecoratorMetadata": true,  // For TypeORM's decorators to work
+    "experimentalDecorators": true,  // For decorators
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,  // Ensures compatibility between CommonJS and ES Modules
+    "target": "ES2023",  // Updated to a later version of ES
+    "sourceMap": true,
+    "outDir": "./dist",  // Where your compiled files will go
+    "baseUrl": "./",  // Root directory for module resolution
+    "incremental": true,
+    "skipLibCheck": true,  // Skips type checking of declaration files (speed optimization)
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "noFallthroughCasesInSwitch": false,
+    "types": ["node", "multer"],  // Ensure Node and multer types are included
+    "paths": {
+      "*": ["src/*"]  // Resolves paths starting with "src" for better module resolution
+    }
+  },
+  "include": ["src/**/*.ts"],  // Ensures all TypeScript files inside src are included
+  "exclude": ["node_modules", "dist"]  // Excludes node_modules and dist directories
+}
