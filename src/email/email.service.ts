@@ -30,7 +30,6 @@ export class EmailService {
     }
   }
 
-  // 📨 Send registration email to new user
   async sendRegistrationEmail(user: User): Promise<void> {
     if (!user || !user.email) {
       this.logger.warn('Cannot send registration email: Invalid user or missing email');
@@ -55,7 +54,6 @@ export class EmailService {
     }
   }
 
-  // 🧾 Generate registration email content
   private generateRegistrationEmail(user: User): string {
     return `
       <html>
@@ -77,7 +75,6 @@ export class EmailService {
     `;
   }
 
-  // ✅ Send payment confirmation email to user
   async sendConfirmationEmail(user: User, transaction: Payment): Promise<void> {
     if (!user || !user.email) {
       this.logger.warn('Cannot send confirmation email: Invalid user or missing email');
@@ -102,7 +99,6 @@ export class EmailService {
     }
   }
 
-  // 🧾 Generate payment confirmation email content
   private generatePaymentConfirmationEmail(user: User, transaction: Payment): string {
     return `
       <html>
@@ -125,8 +121,6 @@ export class EmailService {
       </html>
     `;
   }
-
-  // 🔌 Optional: test email configuration
   async testEmailConnection(): Promise<boolean> {
     try {
       await this.transporter.verify();

@@ -22,9 +22,9 @@ export class PaymentService {
       const response = await axios.post(
         'https://api.paystack.co/transaction/initialize',
         {
-          amount: amount * 100, // Paystack uses kobo
+          amount: amount * 100,
           email,
-          callback_url: 'https://3268-102-89-68-150.ngrok-free.app/', // Change to your callback URL
+          callback_url: 'https://3268-102-89-68-150.ngrok-free.app/', 
         },
         {
           headers: {
@@ -36,7 +36,7 @@ export class PaymentService {
 
       const reference = response.data.data.reference;
 
-      // Log and save reference to the user
+  
       console.log('Payment initiated with reference:', reference);
 
       await this.userRepository.update({ email }, { reference });
@@ -53,7 +53,7 @@ export class PaymentService {
 
   async verifyPayment(reference: string): Promise<any> {
     try {
-      console.log('🔍 Verifying payment for reference:', reference);
+      console.log(' Verifying payment for reference:', reference);
 
       const response = await axios.get(
         `https://api.paystack.co/transaction/verify/${reference}`,
@@ -64,7 +64,6 @@ export class PaymentService {
         },
       );
 
-      // Check if the response from Paystack is successful
       if (response.data.status === 'success') {
         console.log('Paystack verification response:', response.data);
 

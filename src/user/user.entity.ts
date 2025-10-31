@@ -36,7 +36,7 @@ export class User {
   @Column({ unique: true, default: () => 'gen_random_uuid()' })
   reference: string;
 
-  // Add the one-to-many relationship
+
   @OneToMany(() => Payment, payment => payment.user)
   payments: Payment[];
 }

@@ -35,12 +35,12 @@ export class UserController {
     @Body() createUserDto: CreateUserDto,
     @UploadedFile() file: Express.Multer.File,
   ) {
-    const image = file?.filename; // Extract the filename for storage
-    return this.userService.create(createUserDto, image); // Call service to create the user
+    const image = file?.filename; 
+    return this.userService.create(createUserDto, image); 
   }
 
   @Get(':id')
   async getUserById(@Param('id') id: string) {
-    return this.userService.findById(id); // Fetch user by ID
+    return this.userService.findById(id); 
   }
 }

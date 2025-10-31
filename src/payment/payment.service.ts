@@ -24,7 +24,6 @@ export class PaymentService {
     }
   }
 
-  // Initiating Payment
   async initiatePayment(amount: number, email: string): Promise<any> {
     try {
       const user = await this.userRepository.findOne({ where: { email } });
@@ -68,7 +67,6 @@ export class PaymentService {
     }
   }
 
-  // Verifying Payment
   async verifyPayment(reference: string): Promise<any> {
     try {
       const response = await axios.get(
